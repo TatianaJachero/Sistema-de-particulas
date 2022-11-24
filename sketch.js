@@ -1,4 +1,4 @@
-let nTriangle = 20;
+let nTriangle = 80;
 let pelotas = [];
 let t = 0;
 
