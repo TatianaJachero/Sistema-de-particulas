@@ -1,20 +1,20 @@
-let nPelotas = 100;
+let nTriangle = 20;
 let pelotas = [];
 let t = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < nPelotas; i++) {
+  for (let i = 0; i < nTriangle; i++) {
     pelotas[i] = new RandomWalek(i);
   }
 }
 
 function draw() {
-  for (let i = 0; i < nPelotas; i++) {
+  for (let i = 0; i < nTriangle; i++) {
     pelotas[i].update(t);
     pelotas[i].display();
   }
-  t += 0.01;
+  t += 0.001;
 }
 
 // _________________________________
@@ -26,13 +26,15 @@ function draw() {
 
 class RandomWalek {
   constructor(_name) {
-    this.red = random(0, 50);
+    this.red = random(0, 100);
     this.green = random(100, 255);
-    this.blue = random(100, 150);
+    this.blue = random(50, 150);
 
     this.pos = createVector(width / 2, height / 2);
-    this.speed = createVector(random(-5, 5), random(-5, 5));
-    this.diametro = random(10, 50);
+    this.pos2 = createVector(width / 3, height / 3);
+    this.pos3 = createVector(width / 4, height / 4);
+    this.speed = createVector(random(-3, 3), random(-3, 3));
+
     print('Hola! soy la pelota' + this.name);
   }
 
@@ -43,8 +45,9 @@ class RandomWalek {
   }
 
   display() {
+    stroke('rgba*255,150,0,0.1)');
     fill(this.red, this.green, this.blue);
-    ellipse(this.pos.x, this.pos.y, this.diametro, this.diametro);
+    triangle(this.pos.x, this.pos.y, this.pos2.x, this.pos2.y, this.pos3.x, this.pos3.y);
 
   }
 }
