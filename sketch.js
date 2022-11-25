@@ -1,4 +1,4 @@
-let nTriangle = 80;
+let nTriangle = 120;
 let pelotas = [];
 let t = 0;
 
@@ -30,6 +30,10 @@ class RandomWalek {
     this.green = random(0, 255);
     this.blue = random(150, 150);
 
+    this.t = 0;
+    this.tSpeed = random(1);
+
+
     this.noiseShift = random(100);
 
     this.pos = createVector(width / 2, height / 2);
@@ -49,12 +53,15 @@ class RandomWalek {
 
   update(_t) {
 
-    this.speed.rotate(map(noise(_t + this.noiseShift), 0, 1, -0.5, 0.5));
+    this.speed.rotate(map(noise(this.t), 0, 1, -0.5, 0.5));
     this.pos.add(this.speed);
+
+    this.t += this.tSpeed;
   }
 
   display() {
     stroke('rgba*255,150,0,0.1)');
+    strokeWeight(1.5);
     fill(this.red, this.green, this.blue);
     triangle(this.pos.x, this.pos.y, this.pos2.x, this.pos2.y, this.pos3.x, this.pos3.y);
 
