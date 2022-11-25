@@ -61,8 +61,7 @@ class RandomWalek {
     this.speed = createVector(random(-3, 3), random(-3, 3));
 
     this.pos4 = createVector(width / 2, height / 2);
-    this.pos5 = createVector(width / 2, height / 2);
-    this.pos6 = createVector(width / 5, height / 5);
+    this.diametro = random(-50, 50);
     this.speed2 = createVector(random(-5, 5), random(-5, 5));
 
 
@@ -92,7 +91,7 @@ class RandomWalek {
 
     stroke('rgba]0,100,150,0.01)');
     fill(this.red2, this.green2, this.blue2);
-    triangle(this.pos4.x, this.pos4.y, this.pos5.x, this.pos5.y, this.pos6.x, this.pos6.y);
+    ellipse(this.pos4.x, this.pos4.y, this.diametro, this.diametro);
 
   }
 }
