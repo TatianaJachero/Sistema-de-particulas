@@ -30,6 +30,8 @@ class RandomWalek {
     this.green = random(0, 255);
     this.blue = random(150, 150);
 
+    this.noiseShift = random(100);
+
     this.pos = createVector(width / 2, height / 2);
     this.pos2 = createVector(width / 3, height / 3);
     this.pos3 = createVector(width / 4, height / 4);
@@ -47,7 +49,7 @@ class RandomWalek {
 
   update(_t) {
 
-    this.speed.rotate(map(noise(_t), 0, 1, -0.5, 0.5));
+    this.speed.rotate(map(noise(_t + this.noiseShift), 0, 1, -0.5, 0.5));
     this.pos.add(this.speed);
   }
 
